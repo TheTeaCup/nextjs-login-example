@@ -6,7 +6,7 @@ export default class Button extends React.Component {
     }
 
     componentDidMount() {
-        if (localStorage.getItem("user")) {
+        if (sessionStorage.getItem("user")) {
             this.setState({loggedIn: true});
 
         }
@@ -18,7 +18,7 @@ export default class Button extends React.Component {
             <>
                 {loggedIn ? (
                     <>
-                        <a href={"/dashboard"}>
+                        <a href={"/dash"}>
                             <button className="btn navbar-btn">
                                 <i className="fas fa-sign-in-alt"/> Dashboard
                             </button>

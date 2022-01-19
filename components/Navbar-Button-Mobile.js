@@ -8,7 +8,7 @@ export default class Mobile_Button extends React.Component {
 
     componentDidMount() {
 
-        if (localStorage.getItem("user")) {
+        if (sessionStorage.getItem("user")) {
             this.setState({loggedIn: true});
 
         }
@@ -19,7 +19,7 @@ export default class Mobile_Button extends React.Component {
         return (
             <>
                 {loggedIn ? (
-                    <a href={"/dashboard"} className="nav-links-mobile">
+                    <a href={"/dash"} className="nav-links-mobile">
                         <i className="fas fa-sign-in-alt"/> Dashboard
                     </a>
                 ) : (
