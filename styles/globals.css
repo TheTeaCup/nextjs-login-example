@@ -1,16 +1,375 @@
-html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #12232E;
 }
 
-a {
-  color: inherit;
+.NavIcon {
+  width: 4em;
+  height: 2em;
+  color: rgba(255, 255, 255, 0.5);;
+  cursor: pointer;
+  user-select: none;
+}
+
+.NavIcon :hover {
+  color: #fff;
+}
+
+.NavItem {
+  display: flex;
+  align-items: center;
+  padding: 16px 8px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.NavItem:hover {
+  background-color: rgba(255, 253, 253, 0.1);
+}
+
+.NavItem:hover .NavIcon {
+  color: #ffff;
+}
+
+.NavItem-Active {
+  display: flex;
+  align-items: center;
+  padding: 16px 8px;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: rgba(255, 253, 253, 0.1);
+}
+
+.NavItem-Active .NavIcon-Active {
+  width: 4em;
+  height: 2em;
+  cursor: pointer;
+  user-select: none;
+  color: #ffff;
+}
+
+/* nav */
+.nav-menu {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  width: 70vw;
+  justify-content: end;
+  margin-right: 2rem;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.btn {
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  background-color: #3583cb;
+  transition: all 0.2s ease-in-out;
+  padding: 12px 22px;
   text-decoration: none;
 }
 
-* {
+.btn:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #4487c5;
+}
+
+.fa-bars {
+  color: #fff;
+}
+
+.menu-icon {
+  display: none;
+}
+
+@media screen and (max-width: 960px) {
+  .NavbarItems {
+    position: relative;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90vh;
+    position: absolute;
+    top: 80px;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 50;
+  }
+
+  .nav-menu.active {
+    background-color: #21517D;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1001;
+    overflow: hidden;
+    position: fixed;
+  }
+
+  .nav-links {
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+    display: table;
+  }
+
+  .nav-links:hover {
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  .navbar-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(25%, 50%);
+  }
+
+  .menu-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+
+  .fa-times {
+    color: #fff;
+    font-size: 2rem;
+  }
+
+  .nav-links-mobile {
+    display: block;
+    text-align: center;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: 4px;
+    width: 80%;
+    background: #007CC7;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  .nav-links-mobile:hover {
+    transition: all 0.2s ease-in-out;
+    background-color: #0f8fe0;
+  }
+
+  .navbar-btn {
+    display: none;
+  }
+}
+
+:root {
+  --text: #363636;
+  --text-light: #52526e;
+  --primary: #6a6a92;
+  --border: rgba(255, 255, 255, 0.5);
+  --padding: 16px 80px;
+  --line-height: 24px;
+
+  --width-without-space: calc(100% - 5%);
+  --input-space-y: 15px;
+}
+
+.input-group {
+  position: relative;
+  border: 3px solid var(--border);
+  border-radius: 6px;
+  margin: var(--input-space-y) 0;
+  width: 49%;
+}
+
+@media screen and (max-width: 1000px) {
+  .input-group {
+    width: 100%;
+  }
+}
+
+.input-group input {
+  padding: 16px 15px;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  color: var(--border);
+  font-size: 16px;
+  line-height: var(--line-height);
+}
+
+.input-group:hover,
+.input-group:focus-within {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input:focus,
+.input-group:hover input {
+  color: var(--border);
+}
+
+.input-group label {
+  position: absolute;
+  background-color: transparent;
+  padding: var(--padding);
+  line-height: var(--line-height);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  color: var(--border);
+  cursor: text;
+}
+
+.input-group:hover label {
+  color: rgba(229, 227, 227, 0.5);
+}
+
+.input-group label,
+.input-group input:not(:placeholder-shown) ~ label {
+  padding: 0px 8px;
+  background-color: #203647;
+  top: -12px;
+  left: 16px;
+  bottom: auto;
+  color: var(--border);
+}
+
+.con {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  background-color: #203647;
+  border-radius: 20px;
   box-sizing: border-box;
+  height: 580px;
+  padding: 20px;
+  width: 420px;
+}
+
+.title {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.subtitle {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background: rgb(44, 77, 97);
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  background-color: #203647;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 25%;
+}
+
+.cut-short {
+  width: 50px;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #ccc;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.input:focus ~ .placeholder {
+  color: #fff;
+}
+
+.submit {
+  background-color: #007CC7;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 50px;
+  margin-top: 38px;
+  text-align: center;
+  width: 100%;
+}
+
+.submit:hover {
+  transition: all 0.2s ease-in-out;
+  background-color: #0f8fe0;
 }
